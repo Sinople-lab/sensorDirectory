@@ -149,7 +149,7 @@ async function init() {
           updateStatusCell(device.id, "offline");
       }
 
-      await sleep(1000);   // <- important
+      await sleep(900);   // <- important
   }
 }
 
