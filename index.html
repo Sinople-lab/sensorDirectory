@@ -3,56 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monitoreo</title>
+    <title>Monitoreo de Energia</title>
+    <script type="module" src="./js/main.js" defer></script>
     <link rel="stylesheet" href="./style/style.css" />
   </head>
+
   <body>
-
     <div class="app">
-    <header class="topbar">
-      <div class="brand">
-        <div class="brand-mark">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <h1>Monitoreo de Energia</h1>
-        </div>
-      </div>
-    </header>
 
-    <div class="container"> 
-      <header>
-        <!-- <h1>Estatus de sensores</h1> -->
-        <p class="subtitle">Estatus online/offline en tiempo real de sensores</p>
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-mark">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>Monitoreo de Energia</h1>
+            <span class="brand-sub">Sensores</span>
+          </div>
+        </div>
       </header>
 
-      <div class="table-wrapper"> 
-        <table id="deviceTable">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Ubicacion</th>
-              <th>Estatus</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody">
-            <tr class="loading-row">
-              <td colspan="3">Leyendo Base de Datos…</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="container"> 
+        <header>
+          <!-- <h1>Estatus de sensores</h1> -->
+          <p class="subtitle">Estatus online/offline en tiempo real de sensores</p>
+        </header>
+
+        <div class="table-wrapper"> 
+          <table id="deviceTable">
+
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Ubicacion</th>
+                <th>Estatus</th>
+              </tr>
+            </thead>
+
+            <tbody id="tableBody">
+              <tr class="loading-row">
+                <td colspan="3">Leyendo Base de Datos…</td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+
+        <div id="errorBanner" class="error-banner" hidden></div>
       </div>
 
-      <div id="errorBanner" class="error-banner" hidden></div>
+      <footer class="footer">
+        <div class="footer-title">Acondicionamiento de Sitios</div>
+        <div class="footer-author">Martin Carballo Flores</div>
+      </footer>
     </div>
-
-    <footer class="footer">
-      <div class="footer-title">Acondicionamiento de Sitios</div>
-      <div class="footer-author">Martin Carballo Flores</div>
-    </footer>
-    
-    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
