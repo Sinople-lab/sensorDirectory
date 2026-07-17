@@ -16,7 +16,7 @@ const showToast = (msg, type = "") => {
   const toast = $("toast");
   toast.textContent = msg;
   toast.className = "toast show " + type;
-  setTimeout(() => toast.classList.remove("show"), 60000);
+  setTimeout(() => toast.classList.remove("show"), 1000);
 };
 
 const setStatus = (online) => {
