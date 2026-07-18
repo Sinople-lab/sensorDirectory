@@ -175,5 +175,5 @@ if (!DEVICE_ID || !AUTH_KEY) {
   $("deviceLocation").textContent = DEVICE_LOCATION;
   $("refreshBtn").addEventListener("click", fetchData);
   fetchData();
-  setInterval(fetchData, 60000);
+  setInterval(fetchData, 30000);
 }
