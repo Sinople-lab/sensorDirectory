@@ -78,8 +78,8 @@ async function fetchDevices() {
 
   return documents.map((doc) => ({
     id: doc.id,
-    location: doc.location ?? doc.Location ?? null,
-    auth_key: doc.auth_key ?? doc.token ?? doc.token_key ?? null,
+    location: doc.location ?? null,
+    auth_key: doc.token ?? null,
   }));
 }
 
@@ -89,11 +89,10 @@ async function fetchShellyStatus(deviceId, authKey) {
   if (!res.ok) return false;
   const data = await res.json().catch(() => null);
   if (!data) return false;
-  return Boolean(data.online ?? data.is_online ?? (data.data && data.data.online));
+  return Boolean(data.data?.online);
 }
 
 async function init() {
-  console.log("init()", new Date().toLocaleTimeString());
 
   renderLoadingRow();
   clearError();
@@ -102,43 +101,23 @@ async function init() {
   try {
     devices = await fetchDevices();
   } catch (err) {
-    renderErrorRow("Failed to load devices.");
+    renderErrorRow("Error al Cargar dispositivos.");
     showError(err.message);
     return;
   }
 
   if (devices.length === 0) {
-    renderErrorRow("No devices found.");
+    renderErrorRow("No se encontraron dispositivos.");
     return;
   }
 
   renderRows(devices);
-
-  /* const statusPromises = devices.map(async (device) => {
-    if (!device.auth_key) {
-      updateStatusCell(device.id, "offline");
-      return;
-    }
-    try {
-      const isOnline = await fetchShellyStatus(device.id, device.auth_key);
-      updateStatusCell(device.id, isOnline ? "online" : "offline");
-    } catch {
-      updateStatusCell(device.id, "offline");
-    }
-  });
-
-  await Promise.allSettled(statusPromises); */
 
   function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   for (const device of devices) {
-      if (!device.auth_key) {
-          updateStatusCell(device.id, "offline");
-          continue;
-      }
-
       try {
           const isOnline = await fetchShellyStatus(device.id, device.auth_key);
           updateStatusCell(
@@ -149,9 +128,9 @@ async function init() {
           updateStatusCell(device.id, "offline");
       }
 
-      await sleep(900);   // <- important
+      await sleep(900);
   }
 }
 
 init();
-setInterval(init, 60000);
+setInterval(init, 240000);
