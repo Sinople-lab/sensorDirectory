@@ -139,14 +139,14 @@ th {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--neutral-500);
-  border-bottom: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--border);
 }
 
 td {
   padding: 16px 20px;
   font-size: 0.95rem;
   color: var(--neutral-700);
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
 
