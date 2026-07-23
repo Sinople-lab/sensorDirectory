@@ -33,7 +33,7 @@
   --phase-c: #4763ff;
 
   --radius: 12px;
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --shadow: 0 4px 24px rgba(58, 81, 114, 0.35);
   /* --shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04); */
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
 
@@ -117,7 +117,6 @@ h1 {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
   overflow: hidden;
   /* border: 1px solid var(--neutral-200); */
 }
@@ -145,7 +144,7 @@ th {
 td {
   padding: 16px 20px;
   font-size: 0.95rem;
-  color: var(--neutral-700);
+  color: var(--text-dim);
   border-bottom: 1px solid var(--border);
   vertical-align: middle;
 }
@@ -158,16 +157,15 @@ tbody tr {
   transition: background-color 0.15s ease;
 }
 
-tbody tr:hover {
+/* tbody tr:hover {
   background: var(--neutral-50);
-}
+} */
 
 .device-row {
   cursor: pointer;
 }
 
 .device-row:hover {
-  /* background: #eff6ff; */
   background: var(--bg-card-hover);
   box-shadow: var(--shadow);
 }
@@ -182,7 +180,10 @@ tbody tr:hover {
   color: var(--neutral-500);
   padding: 40px 20px;
 }
-
+.error-row:hover{
+  background: var(--bg-card-hover);
+  box-shadow: var(--shadow);
+}
 .id-cell {
   font-family: "SF Mono", "Fira Code", monospace;
   font-size: 0.85rem;
@@ -247,11 +248,11 @@ tbody tr:hover {
 .error-banner {
   margin-top: 16px;
   padding: 12px 16px;
-  background: var(--error-bg);
-  color: var(--error);
+  background: var(--text-dim);
+  color: var(--phase-b);
   border-radius: var(--radius);
   font-size: 0.9rem;
-  border: 1px solid rgba(220, 38, 38, 0.2);
+  border: 1px solid rgba(255, 237, 237, 0.2);
 }
 
 /* Footer */
